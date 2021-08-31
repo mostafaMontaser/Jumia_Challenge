@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/layout_height">
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@+id/txt_discount"
+        android:id="@+id/img_poaster"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/img_height"
+        android:layout_weight="1"
+        android:contentDescription="@string/search_item_des"
+        android:padding="@dimen/standard_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+    <TextView
+        android:layout_marginStart="@dimen/standard_padding"
+        android:textSize="18sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/small_padding"
+        android:id="@+id/txt_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_poaster"
+        android:textIsSelectable="true" />
+    <TextView
+        android:layout_marginStart="@dimen/standard_padding"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginEnd="@dimen/small_padding"
+        android:id="@+id/txt_name"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_brand"
+        android:textIsSelectable="true" />
+    <TextView
+        android:layout_marginStart="@dimen/standard_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:background="@drawable/rounded_corner_rectangle"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/standard_padding"
+        android:id="@+id/txt_discount"
+        android:layout_width="@dimen/txt_width"
+        android:layout_height="@dimen/txt_width"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textIsSelectable="true" />
+    <RatingBar
+        android:progressTint="@color/colorPrimary"
+        style="?android:attr/ratingBarStyleSmall"
+        android:numStars="5"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:layout_marginEnd="@dimen/small_padding"
+        android:layout_marginTop="@dimen/standard_padding"
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_old_price_label" />
+    <TextView
+        android:layout_marginStart="@dimen/standard_padding"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:text="@string/price"
+        android:layout_marginTop="@dimen/small_padding"
+        android:id="@+id/txt_price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/small_padding"
+        android:id="@+id/txt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/txt_price_label"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name"
+        android:textIsSelectable="true" />
+    <TextView
+        android:layout_marginStart="@dimen/standard_padding"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:text="@string/price"
+        android:layout_marginTop="@dimen/small_padding"
+        android:id="@+id/txt_old_price_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_price_label" />
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/small_padding"
+        android:id="@+id/txt_old_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/txt_old_price_label"
+        app:layout_constraintTop_toBottomOf="@+id/txt_price_label"
+        android:textIsSelectable="true" />
+    <View
+        android:background="@android:color/darker_gray"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="@id/txt_old_price"
+        android:layout_height="@dimen/line_view_width"
+        app:layout_constraintStart_toStartOf="@+id/txt_old_price_label"
+        app:layout_constraintTop_toTopOf="@+id/txt_old_price_label"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_old_price_label"
+        />
+    <View
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/line_view_width"
+        android:layout_height="match_parent"/>
+    <View
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_view_width"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
