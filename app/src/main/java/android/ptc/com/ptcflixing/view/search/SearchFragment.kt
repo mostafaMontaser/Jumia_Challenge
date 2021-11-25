@@ -57,7 +57,9 @@ class SearchFragment : BasicFragment() {
         viewModel.searchResults.observe(this, {
             it?.let {
                 binding.listSearch.show()
-                searchAdapter.updateData(it as List<SearchModel>)
+                @Suppress("UNCHECKED_CAST")
+                val list = it as? List<SearchModel> ?: listOf()
+                searchAdapter.updateData(list)
             }
         })
     }

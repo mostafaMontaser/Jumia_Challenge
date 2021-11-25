@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BaseLocalRepo</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">android.ptc.com.ptcflixing.repository.local</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BaseLocalRepo (android.ptc.com.ptcflixing.repository.local)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">BaseLocalRepo$MockitoMock$979226999</td>
+  </tr>
+  <tr>
+    <td class="name">BaseLocalRepo$MockitoMock$979226999$auxiliary$2tOWUrgX</td>
+  </tr>
+  <tr>
+    <td class="name">BaseLocalRepo$MockitoMock$979226999$auxiliary$H5YvK8hk</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package android.ptc.com.ptcflixing.repository.local
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.ptc.com.ptcflixing.model.response.CacheEntry
+<i>4</i>&nbsp;import android.ptc.com.ptcflixing.util.extention.convertToModel
+<i>5</i>&nbsp;import android.ptc.com.ptcflixing.util.parsing.ParsingHelper
+<i>6</i>&nbsp;import java.lang.reflect.Type
+<i>7</i>&nbsp;import java.util.*
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;interface BaseLocalRepo {
+<i>10</i>&nbsp;     fun getCashedObject(type: Type): Any? {
+<i>11</i>&nbsp;        val entry: CacheEntry&lt;Any&gt;? = SecureSharedPref.getObject(type)
+<i>12</i>&nbsp;        val cachedObject: Any? = entry?.obj
+<i>13</i>&nbsp;        return if (cachedObject != null) {
+<i>14</i>&nbsp;            val mCachedObject: Any? =
+<i>15</i>&nbsp;                ParsingHelper.gson?.toJson(cachedObject)?.convertToModel(type)
+<i>16</i>&nbsp;            mCachedObject
+<i>17</i>&nbsp;        } else null
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;    fun &lt;T&gt; saveObject(instance: T, type: Type, lastModifiedDate: Long = Date().time) =
+<i>20</i>&nbsp;        SecureSharedPref.edit().putObject(CacheEntry(instance, lastModifiedDate), type).apply()
+<i>21</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-10-05 21:36</div>
+</div>
+</body>
+</html>

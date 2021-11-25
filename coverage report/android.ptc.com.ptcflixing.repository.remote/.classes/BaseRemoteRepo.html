@@ -1,0 +1,56 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BaseRemoteRepo</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">android.ptc.com.ptcflixing.repository.remote</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BaseRemoteRepo (android.ptc.com.ptcflixing.repository.remote)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">BaseRemoteRepo</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package android.ptc.com.ptcflixing.repository.remote
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.ptc.com.ptcflixing.model.request.BaseRequestFactory
+<i>4</i>&nbsp;import android.ptc.com.ptcflixing.model.response.BaseModel
+<i>5</i>&nbsp;import retrofit2.Response
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;interface BaseRemoteRepo {
+<i>8</i>&nbsp;      suspend fun  fetchData(requestFactory: BaseRequestFactory): Response&lt;out BaseModel&gt;?
+<i>9</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-10-05 21:36</div>
+</div>
+</body>
+</html>

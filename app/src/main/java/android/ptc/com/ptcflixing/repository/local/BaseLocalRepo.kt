@@ -6,17 +6,16 @@ import android.ptc.com.ptcflixing.util.parsing.ParsingHelper
 import java.lang.reflect.Type
 import java.util.*
 
-open class BaseLocalRepo {
-    open fun getCashedObject(type: Type): Any? {
+interface BaseLocalRepo {
+     fun getCashedObject(type: Type): Any? {
         val entry: CacheEntry<Any>? = SecureSharedPref.getObject(type)
         val cachedObject: Any? = entry?.obj
         return if (cachedObject != null) {
-            val cachedObject: Any? =
+            val mCachedObject: Any? =
                 ParsingHelper.gson?.toJson(cachedObject)?.convertToModel(type)
-            cachedObject
+            mCachedObject
         } else null
     }
     fun <T> saveObject(instance: T, type: Type, lastModifiedDate: Long = Date().time) =
         SecureSharedPref.edit().putObject(CacheEntry(instance, lastModifiedDate), type).apply()
-
 }

@@ -8,10 +8,9 @@ import android.ptc.com.ptcflixing.util.network.NetworkUtil
 import java.lang.reflect.Type
 import java.util.*
 
-abstract class BaseDispatcher(
-    private val localRepo: BaseLocalRepo,
-    private val remoteRepo: BaseRemoteRepo
-) {
+interface BaseDispatcher {
+    val localRepo: BaseLocalRepo
+    val remoteRepo: BaseRemoteRepo
     suspend fun fetchData(cash: Boolean, type: Type, requestFactory: BaseRequestFactory): Any? {
         var errorMessage: String? = null
         var responseCode: String? = null
@@ -20,17 +19,16 @@ abstract class BaseDispatcher(
             if (isNetworkConnected) {
                 remoteRepo.fetchData(requestFactory)
             } else {
-                errorMessage = "Check your internet connection"
+                errorMessage = NetworkUtil.NETWORK_ERROR_MSG
                 responseCode = NetworkUtil.NO_INTERNET_CONNECTION_CODE
                 null
             }
         } catch (ex: Exception) {
-            errorMessage = "Client Error"
+            errorMessage = NetworkUtil.CLIENT_ERROR_MSG
             responseCode = ""
             ex.printStackTrace()
             null
         }
-
         if (response != null) {
             if (response.isSuccessful) {
                 val cache = response.body()
@@ -56,7 +54,9 @@ abstract class BaseDispatcher(
 
     fun getCashedObject(type: Type): Any? = localRepo.getCashedObject(type)
 
-
     fun saveObject(instance: Any?, type: Type, lastModifiedDate: Long = Date().time) =
         localRepo.saveObject(instance, type, lastModifiedDate)
 }
+
+
+

@@ -2,6 +2,7 @@ package android.ptc.com.ptcflixing.viewmodel.search
 
 import android.ptc.com.ptcflixing.dispatcher.BaseDispatcher
 import android.ptc.com.ptcflixing.dispatcher.search.SearchDispatcher
+import android.ptc.com.ptcflixing.dispatcher.search.SearchDispatcherImpl
 import android.ptc.com.ptcflixing.model.request.search.SearchRequestFactory
 import android.ptc.com.ptcflixing.model.response.search.SearchResponse
 import android.ptc.com.ptcflixing.viewmodel.BaseViewModel
